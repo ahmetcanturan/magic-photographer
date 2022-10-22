@@ -10,14 +10,12 @@ const createUser = async (data) => {
     return user
 }
 
-const getAllPhotos = async () => {
-    const photo = await Photo.find()
-    return photo
+const login = async (data) => {
+    const user = await User.findOne({ username: data.username })
+    if (!user) { return { status: false, message: "An incorrect username" } }
+    const compare = (user.password == utils.hashToPassword(data.password)) ? { status: true } : { status: false, message: "An incorrect password" }
+    return compare
 }
 
-const getPhotoById = async (id) => {
-    const photo = await Photo.findById(id)
-    return photo
-}
 
-export { createUser }
+export { createUser, login }
