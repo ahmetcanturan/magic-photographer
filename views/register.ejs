@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs")%>
+
+    <!-- body -->
+
+
+    <!-- end loader -->
+
+    <%- include("partials/menu.ejs")%>
+        <!-- contact -->
+        <div class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="titlepage text_align_center">
+                            <span>06</span>
+                            <h2>Requste A Call Back</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-8 offset-md-2">
+                        <form id="request" class="main_form" action="user/register" method="POST">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="form_control" placeholder="Username *" type="text" name="username">
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="form_control" placeholder="Email *" type="email" name="email">
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="form_control" placeholder="Password *" type="password"
+                                        name="password">
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="group_form">
+                                        <button class="send_btn">Register</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end contact -->
+        <!-- end footer -->
+        <%- include("partials/footer.ejs")%>

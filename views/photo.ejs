@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs")%>
+
+    <!-- header -->
+    <%- include("partials/menu.ejs")%>
+        <!-- about -->
+        <div class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="titlepage text_align_left">
+                            <span>01</span>
+                            <h3>
+                                <%=photo.name %>
+                            </h3>
+                            <p>
+                                <%=photo.description%>
+                            </p>
+                            <a class="read_more" href="about.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about_img">
+                            <figure><img src="/images/about_img.png" alt="#" /></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end about -->
+        <!-- end footer -->
+        <%- include("partials/footer.ejs")%>
