@@ -10,10 +10,15 @@ const createUser = async (data) => {
     return user
 }
 
-const login = async (data) => {
-    const user = await User.findOne({ username: data.username })
+const login = async (req) => {
+    const user = await User.findOne({ username: req.body.username })
     if (!user) { return { status: false, message: "An incorrect username" } }
-    const compare = (user.password == utils.hashToPassword(data.password)) ? { status: true } : { status: false, message: "An incorrect password" }
+    const compare = (user.password == utils.hashToPassword(req.body.password)) ? { status: true } : { status: false, message: "An incorrect password" }
+    if (compare.status == true) {
+        const token = utils.createToken(user.id, user.username, user.email)
+        // req.headers.authorization = token
+        compare.token = token
+    }
     return compare
 }
 
