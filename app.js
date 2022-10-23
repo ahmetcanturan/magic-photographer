@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))//?Formdan gelen verileri alabilmek için
 app.use(cookie())
 app.use(middlewares.aut)
+app.use(middlewares.userDetect)
 
 //? -------------App.use_Routers---------------
 app.use(`${process.env.APP_PREFIX}`, routers.page)//?->localhost:3000/MagicPhotographer/

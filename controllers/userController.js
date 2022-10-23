@@ -13,7 +13,16 @@ const createUser = async (req, res) => {
 const login = async (req, res) => {
     try {
         const json = await services.user.login(req)
-        return (json.status == true) ? res.cookie("jwt", json.token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }).redirect("/photos") : res.status(500).json({ json })
+        return (json.status == true) ? res.cookie("jwt", json.token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }).redirect("/user/control-board") : res.status(500).json({ json })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ succeded: false, error })
+    }
+}
+
+const controlBoard = async (req, res) => {
+    try {
+        return res.status(201).render("controlBoard")
     } catch (error) {
         console.log(error)
         res.status(500).json({ succeded: false, error })
@@ -22,5 +31,4 @@ const login = async (req, res) => {
 
 
 
-
-export { createUser, login }
+export { createUser, login, controlBoard }

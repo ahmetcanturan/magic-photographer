@@ -24,7 +24,6 @@ const verifyToken = (token) => {
     try {
         const decodedToken = jwt.verify(token, process.env.SECRET_KEY)
         isVerify.decodedToken = decodedToken
-
     } catch (error) {
         isVerify.decodedToken = null
     }

@@ -5,15 +5,18 @@ const createPhoto = async (req, res) => {
         const json = await services.photo.createPhoto(req.body)
         res.status(201).json({ json })
     } catch (error) {
+        console.log(error)
         res.status(500).json({ succeded: false, error })
     }
 }
 
 const getAllPhotos = async (req, res) => {
     try {
+        console.log(req.user)
         const photos = await services.photo.getAllPhotos()
         res.status(201).render("photos", { photos })
     } catch (error) {
+        console.log(error)
         res.status(500).json({ succeded: false, error })
     }
 }

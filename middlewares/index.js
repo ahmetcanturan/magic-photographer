@@ -1,3 +1,4 @@
 import aut from "./autMiddleware.js"
+import userDetect from "./userDetectMiddleware.js"
 
-export { aut }
+export { aut, userDetect }
