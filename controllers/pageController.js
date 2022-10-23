@@ -11,6 +11,7 @@ const registerPage = (req, res) => {
     res.render("register")
 }
 const loginPage = (req, res) => {
+    console.log(res.locals.aut)
     res.render("login")
 }
 export { indexPage, aboutPage, contactPage, registerPage, loginPage }

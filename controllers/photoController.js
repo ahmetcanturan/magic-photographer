@@ -12,7 +12,6 @@ const createPhoto = async (req, res) => {
 
 const getAllPhotos = async (req, res) => {
     try {
-        console.log(req.user)
         const photos = await services.photo.getAllPhotos()
         res.status(201).render("photos", { photos })
     } catch (error) {

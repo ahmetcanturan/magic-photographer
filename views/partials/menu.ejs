@@ -19,13 +19,15 @@
                         <nav class="site-navbar">
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="about">About</a></li>
-                                <li><a href="services">Services</a></li>
-                                <li><a href="photos">Gallery</a></li>
-                                <li><a href="projects">Projects</a></li>
-                                <li><a href="blog">Blog</a></li>
-                                <li><a href="contact">Contact</a></li>
-                                <li><a href="register">Register</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/photos">Gallery</a></li>
+                                <li><a href="/projects">Projects</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <%if(!aut){%>
+                                    <li><a href="/register">Register</a></li>
+                                    <%}%>
                             </ul>
                             <button class="nav-toggler">
                                 <span></span>
@@ -35,8 +37,14 @@
                 </div>
                 <div class=" col-md-2 di_none">
                     <ul class="email text_align_right">
-                        <li><a href="login">Login</a></li>
-                        <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <%if(!aut){%>
+                            <li><a href="/login">Login</a></li>
+                            <%} else { %>
+                                <li><a href="/user/logout">LogOut</a></li>
+                                <%}%>
+
+                                    <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    </li>
                     </ul>
                 </div>
             </div>

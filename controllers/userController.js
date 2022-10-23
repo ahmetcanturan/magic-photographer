@@ -28,7 +28,17 @@ const controlBoard = async (req, res) => {
         res.status(500).json({ succeded: false, error })
     }
 }
+const logOut = async (req, res) => {
+    try {
+        res.clearCookie("jwt");
+        return res.status(201).redirect("/")
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ succeded: false, error })
+    }
+}
 
 
 
-export { createUser, login, controlBoard }
+
+export { createUser, login, controlBoard, logOut }
