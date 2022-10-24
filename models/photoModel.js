@@ -17,6 +17,14 @@ const photoSchema = new Schema({
         type: Schema.Types.String,
         require: true,
         default: Date.now
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    image: {
+        type: Schema.Types.String,
+        require: true
     }
 }, {
     minimize: true,//? boş kayıtları otomatik siler

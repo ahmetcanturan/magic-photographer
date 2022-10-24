@@ -13,7 +13,7 @@ const getAllPhotos = async () => {
 }
 
 const getPhotoById = async (id) => {
-    const photo = await Photo.findById(id)
+    const photo = await Photo.findById(id).populate("user")
     return photo
 }
 

@@ -1,5 +1,6 @@
 import * as services from "../services/index.js"
 import { validate } from "../utils/utils.js"
+import Photo from "../models/photoModel.js"
 
 const createUser = async (req, res) => {
     try {
@@ -25,7 +26,8 @@ const login = async (req, res) => {
 
 const controlBoard = async (req, res) => {
     try {
-        return res.status(201).render("controlBoard")
+        const photos = await Photo.find({ user: res.locals.user.id })
+        return res.status(201).render("controlBoard", { photos })
     } catch (error) {
         console.log(error)
         res.status(500).json({ succeded: false, error })
