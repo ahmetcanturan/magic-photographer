@@ -17,20 +17,43 @@
                         </div>
                     </div>
                     <div class="col-md-8 offset-md-2">
-                        <form id="request" class="main_form" action="user/login" method="POST">
+                        <form id="request" class="main_form" action="/user/login" method="POST">
                             <div class="row">
                                 <div class="col-md-12">
                                     <input class="form_control" placeholder="Username *" type="text" name="username">
                                 </div>
-                                <div class="col-md-12">
-                                    <input class="form_control" placeholder="Password *" type="password"
-                                        name="password">
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="group_form">
-                                        <button class="send_btn">Login</button>
-                                    </div>
-                                </div>
+                                <% if(error) {%>
+                                    <% for (err of error){%>
+                                        <% if(err.param=="username" ) {%>
+                                            <div class="col-md-12">
+                                                <div class="alert alert-danger">
+                                                    <%=err.msg%>
+                                                </div>
+                                            </div>
+                                            <% }%>
+                                                <% }%>
+                                                    <% }%>
+                                                        <div class="col-md-12">
+                                                            <input class="form_control" placeholder="Password *"
+                                                                type="password" name="password">
+                                                        </div>
+                                                        <% if(error) {%>
+                                                            <% for (err of error){%>
+                                                                <% if(err.param=="password" ) {%>
+                                                                    <div class="col-md-12">
+                                                                        <div class="alert alert-danger">
+                                                                            <%=err.msg%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <% }%>
+                                                                        <% }%>
+                                                                            <% }%>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="group_form">
+                                                                                        <button
+                                                                                            class="send_btn">Login</button>
+                                                                                    </div>
+                                                                                </div>
                             </div>
                         </form>
                     </div>

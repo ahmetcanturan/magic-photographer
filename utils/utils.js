@@ -1,6 +1,7 @@
 import md5 from "md5"
 import jwt from "jsonwebtoken"
-
+import { validationResult } from "express-validator"
+import * as controllers from "../controllers/index.js"
 
 const hashToPassword = (password) => {
     return md5(password)
@@ -30,4 +31,28 @@ const verifyToken = (token) => {
     return isVerify
 }
 
-export { hashToPassword, createToken, verifyToken }
+const validate = (req, res, render_page) => {
+    try {
+        const validationErrors = validationResult(req)
+        if (validationErrors.isEmpty() === false) {
+            res.locals.error = validationErrors.array()
+            switch (render_page) {
+                case "register":
+                    res.status(400).render(render_page)
+                    break;
+                case "login":
+                    res.status(400).render(render_page)
+                    break;
+                default:
+                    break;
+            }
+            return validationErrors
+        }
+        return null
+    } catch (error) {
+        console.log("responseValidatorError:", error)
+    }
+}
+
+
+export { hashToPassword, createToken, verifyToken, validate }

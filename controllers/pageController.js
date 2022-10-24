@@ -8,10 +8,11 @@ const contactPage = (req, res) => {
     res.render("contact")
 }
 const registerPage = (req, res) => {
+    res.locals.error = null
     res.render("register")
 }
 const loginPage = (req, res) => {
-    console.log(res.locals.aut)
+    res.locals.error = null
     res.render("login")
 }
 export { indexPage, aboutPage, contactPage, registerPage, loginPage }

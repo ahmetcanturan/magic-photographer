@@ -2,20 +2,15 @@ import * as utils from "../utils/utils.js"
 
 export default (req, res, next) => {
     try {
-        if (!req.url.includes("/login")) {
-            if (req?.cookies?.jwt) {
-                const token = req.cookies.jwt
-                const decodedToken = utils.verifyToken(token)
-                if (decodedToken.decodedToken === null) {
-                    res.locals.aut = false
-                    return res.status(404).redirect("/login")
-                }
+        if (req?.cookies?.jwt) {
+            const token = req.cookies.jwt
+            const decodedToken = utils.verifyToken(token)
+            if (decodedToken.decodedToken === null) {
+                res.locals.aut = false
             }
             else {
-                res.locals.aut = false
-                return res.status(404).redirect("/login")
+                res.locals.aut = true
             }
-            res.locals.aut = true
         }
         else res.locals.aut = false
         next()

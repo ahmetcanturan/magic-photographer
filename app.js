@@ -1,4 +1,4 @@
-//! npm i express ejs dotenv mongoose md5 jsonwebtoken cookie-parser
+//! npm i express ejs dotenv mongoose md5 jsonwebtoken cookie-parser express-validator
 // mongodb + srv://admin:<password>@ahmtcntrn.0zlhurr.mongodb.net/?retryWrites=true&w=majority
 import express from "express"
 import dotenv from "dotenv"
@@ -17,7 +17,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))//?Formdan gelen verileri alabilmek için
 app.use(cookie())
 app.use(middlewares.aut)
-app.use(middlewares.userDetect)
 
 //? -------------App.use_Routers---------------
 app.use(`${process.env.APP_PREFIX}`, routers.page)//?->localhost:3000/MagicPhotographer/

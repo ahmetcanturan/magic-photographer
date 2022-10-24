@@ -6,7 +6,6 @@ const createUser = async (data) => {
     delete data.password
     data.password = password
     const user = await User.create(data)
-    console.log(user)
     return user
 }
 
