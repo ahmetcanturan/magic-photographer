@@ -25,6 +25,10 @@ const photoSchema = new Schema({
     image: {
         type: Schema.Types.String,
         require: true
+    },
+    cloudinaryId: {
+        type: Schema.Types.String,
+        require: true
     }
 }, {
     minimize: true,//? boş kayıtları otomatik siler

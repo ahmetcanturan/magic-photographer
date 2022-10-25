@@ -7,4 +7,6 @@ const router = express.Router()
 router.get("/photos", photoController.getAllPhotos)
 router.get("/photos/:photoId", photoController.getPhotoById)
 router.post("/user/aut/createPhoto", [userDetect], photoController.createPhoto)
+router.get("/photos-of-a-user/:userId", photoController.getPhotosOfAUser)
+router.get("/user/aut/photo/:photoId", photoController.deletePhoto)
 export default router

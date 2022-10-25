@@ -1,4 +1,4 @@
-//! npm i express ejs dotenv mongoose md5 jsonwebtoken cookie-parser express-validator cloudinary express-fileupload
+//! npm i express ejs dotenv mongoose md5 jsonwebtoken cookie-parser express-validator cloudinary express-fileupload nodemailer
 // mongodb + srv://admin:<password>@ahmtcntrn.0zlhurr.mongodb.net/?retryWrites=true&w=majority
 import express from "express"
 import dotenv from "dotenv"

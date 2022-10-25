@@ -17,7 +17,7 @@ const login = async (req, res) => {
     try {
         if (validate(req, res, "login") != null) { return }
         const json = await services.user.login(req)
-        return (json.status == true) ? res.cookie("jwt", json.token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }).redirect("/user/control-board") : res.status(500).json({ json })
+        return (json.status == true) ? res.cookie("jwt", json.token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 }).redirect("/user/aut/control-board") : res.status(500).json({ json })
     } catch (error) {
         console.log(error)
         res.status(500).json({ succeded: false, error })

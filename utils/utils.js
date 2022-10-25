@@ -1,8 +1,8 @@
 import md5 from "md5"
 import jwt from "jsonwebtoken"
 import { validationResult } from "express-validator"
-import * as controllers from "../controllers/index.js"
-
+import nodemailer from "nodemailer"
+import html_template from "../const/html_template.js"
 const hashToPassword = (password) => {
     return md5(password)
 }
@@ -54,5 +54,21 @@ const validate = (req, res, render_page) => {
     }
 }
 
+const mail = async (req) => {
+    let transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        // true for 465, false for other ports
+        auth: {
+            user: process.env.MAIL, // generated ethereal user
+            pass: process.env.MAIL_PASS, // generated ethereal password
+        },
+    });
+    await transporter.sendMail({
+        to: "ahmtcntrn@hotmail.com", // list of receivers
+        subject: `magic_photographer:${req.body.email}`, // Subject line
+        html: html_template(req), // html body
+    })
+}
 
-export { hashToPassword, createToken, verifyToken, validate }
+export { hashToPassword, createToken, verifyToken, validate, mail }
