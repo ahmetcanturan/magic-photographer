@@ -16,13 +16,16 @@
                                 <%=photo.description%>
                             </h4>
                             <a class="read_more" href="/photos-of-a-user/<%=photo.user.id%>">
-                                Donate
+                                Photographer : <%= photo.user.username %>
                             </a>
-                            <br>
-                            <a class="read_more" href="/download/<%=photo.id%>">
-                                Download
-                            </a>
-
+                            <div style="margin-top: 30px ;">
+                                <ul style="display: flex; justify-content: space-between;">
+                                    <li><a style="min-width: 266px;" class="read_more"
+                                            href="/user/aut/photo/<%=photo._id%>" method="delete"
+                                            onclick="return confirm('Do you want to remove this photo?')">Delete</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">

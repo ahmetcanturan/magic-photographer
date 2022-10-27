@@ -2,7 +2,7 @@ import Photo from "../models/photoModel.js"
 import { v2 as cloudinary } from "cloudinary"
 const createPhoto = async (req, res) => {
     const img = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
-        width: 750, crop: "pad",
+        width: 400, crop: "pad",
         use_filename: true,
         folder: "magic_photographer"
     })
@@ -10,6 +10,7 @@ const createPhoto = async (req, res) => {
     body.image = img.secure_url
     body.user = res.locals.user.id
     body.cloudinaryId = img.public_id
+    console.log(img)
 
     const photo = await Photo.create(body)
     return photo
@@ -30,11 +31,16 @@ const getPhotosOfAUser = async (id) => {
     return photos
 }
 const deletePhoto = async (req, res) => {
-    console.log("serviste")
     const photo = await Photo.findById(req.params.photoId)
     const cloudinaryId = photo.cloudinaryId
     await cloudinary.uploader.destroy(cloudinaryId)
     await Photo.findByIdAndDelete(photo.id)
     return
 }
-export { createPhoto, getAllPhotos, getPhotoById, getPhotosOfAUser, deletePhoto }
+const download = async (photoId) => {
+    const photo = await Photo.findById(photoId)
+    const download = await cloudinary.url(photo.cloudinaryId, { flags: "attachment:ahmtcntrnAPI" })
+    return download
+}
+
+export { createPhoto, getAllPhotos, getPhotoById, getPhotosOfAUser, deletePhoto, download }

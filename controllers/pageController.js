@@ -16,13 +16,19 @@ const loginPage = (req, res) => {
   res.locals.error = null
   res.render("login")
 }
+const donatePage = (req, res) => {
+
+  res.locals.error = null
+  res.send("register")
+}
 const mail = async (req, res) => {
   try {
     await mailler(req)
-    res.status(200).json({ succeeded: true })
+    res.status(200).redirect("/")
   } catch (error) {
     console.log(error)
-    res.status(500).json({ succeded: false, error })
+    res.status(500).json({ succeeded: false, error })
   }
 }
+
 export { indexPage, aboutPage, contactPage, registerPage, loginPage, mail }

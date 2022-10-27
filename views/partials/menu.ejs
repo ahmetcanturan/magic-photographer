@@ -11,7 +11,7 @@
 
                 <div class=" col-md-2 col-sm-3">
                     <div class="logo">
-                        <a href="/">lens<br><span>light</span></a>
+                        <a href="/">Magic<br><span>Photographer</span></a>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-9">
@@ -19,16 +19,17 @@
                         <nav class="site-navbar">
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/services">Services</a></li>
                                 <li><a href="/photos">Gallery</a></li>
-                                <li><a href="/projects">Projects</a></li>
-                                <li><a href="/blog">Blog</a></li>
                                 <li><a href="/contact">Contact</a></li>
-                                <li><a href="/user/aut/control-board">Control Board</a></li>
-                                <%if(!aut){%>
-                                    <li><a href="/register">Register</a></li>
+                                <%if(aut){%>
+                                    <li><a href="/user/aut/control-board">Control Board</a></li>
+                                    <li><a href="/user/logout">Logout</a></li>
                                     <%}%>
+                                        <%if(!aut){%>
+                                            <li><a href="/register">Register</a></li>
+                                            <li><a href="/login">Login</a></li>
+                                            <%}%>
+
                             </ul>
                             <button class="nav-toggler">
                                 <span></span>
@@ -43,8 +44,8 @@
                             <%} else { %>
                                 <li><a href="/user/logout">LogOut</a></li>
                                 <%}%>
-
-                                    <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <li><a href="Javascript:void(0)"><i class="fa fa-camera-retro"
+                                                aria-hidden="true"></i></a>
                                     </li>
                     </ul>
                 </div>

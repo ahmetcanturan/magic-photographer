@@ -9,4 +9,5 @@ router.post("/register", [userValidator.validateCreateUser()], controllers.user.
 router.post("/login", [userValidator.validateLoginUser()], controllers.user.login)
 router.get("/aut/control-board", [userDetect], controllers.user.controlBoard)
 router.get("/logout", controllers.user.logOut)
+router.get("/aut/yourPhoto/:photoId", [userDetect], controllers.user.yourPhoto)
 export default router

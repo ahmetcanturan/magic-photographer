@@ -7,12 +7,19 @@ export default (req, res, next) => {
             const decodedToken = utils.verifyToken(token)
             if (decodedToken.decodedToken === null) {
                 res.locals.aut = false
+                res.clearCookie("jwt")
             }
             else {
                 res.locals.aut = true
             }
         }
-        else res.locals.aut = false
+        else {
+            res.locals.aut = false
+            if (req.url.includes("aut")) {
+                return res.status(404).redirect("/login")
+            }
+
+        }
         next()
     } catch (error) {
         console.log(error)

@@ -42,8 +42,19 @@ const logOut = async (req, res) => {
         res.status(500).json({ succeded: false, error })
     }
 }
+const yourPhoto = async (req, res) => {
+    try {
+        const photo = await Photo.findById(req.params.photoId)
+        return (photo.user == res.locals.user.id) ? res.status(200).render("yourPhoto", { photo }) : res.status(400).redirect("/photos")
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ succeded: false, error })
+    }
+}
 
 
 
 
-export { createUser, login, controlBoard, logOut }
+
+export { createUser, login, controlBoard, logOut, yourPhoto }

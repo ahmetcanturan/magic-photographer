@@ -88,7 +88,7 @@ h2 {
 
 h3 {
     font-size: 20px !important;
-    color: #ffffff;
+    color: #2553be;
 }
 
 h4 {
@@ -250,16 +250,18 @@ button {
     flex-wrap: wrap;
 }
 
+
+
 .read_more {
     font-size: 17px;
-    background: #f6388e;
+    background: #6b38f6;
     max-width: 266px;
     width: 100%;
     transition: ease-in all 0.5s;
     color: #fff;
     display: block;
-    height: 76px;
-    line-height: 76px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     border-radius: 5px;
     font-weight: normal;
@@ -320,14 +322,14 @@ button {
 
 .header-area {
     width: 100%;
-    border-top: #f6388e solid 16px;
+    border-top: #401b98 solid 16px;
     background: #fff;
     height: 100px;
     padding: 23px 20px;
 }
 
 .logo a {
-    color: #1c1c1b;
+    color: #d8b818;
     font-weight: 600;
     font-size: 20px;
     text-transform: uppercase;
@@ -337,11 +339,13 @@ button {
 }
 
 .logo a span {
-    color: #f6388e;
+    color: #6826b4;
 }
 
 .navbar-area {
-    float: left;
+
+    margin-left: 30%;
+
 }
 
 .site-navbar ul {
@@ -362,7 +366,7 @@ button {
 }
 
 .site-navbar ul li {
-    padding-right: 60px;
+    padding-right: 70px;
 }
 
 .site-navbar ul li:last-child {
@@ -468,12 +472,60 @@ ul.email li i {
 
 /** banner section **/
 .slider_main {
-    background: url(../images/banner.jpg);
+    background: url(../images/photographer.jpg);
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding: 90px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.discover {
+    font-size: 17px;
+    background: #3d3baa;
+    max-width: 266px;
+    width: 100%;
+    transition: ease-in all 0.5s;
+    color: #fff;
+    display: block;
+    position: relative;
+    /* left: 45%; */
+    top: 85%;
+    height: 76px;
+    line-height: 76px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: normal;
+}
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+            rgba(0, 0, 0, .2),
+            rgba(0, 0, 0, .2) 30%,
+            rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+        inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+        inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
 .relative {
@@ -498,15 +550,15 @@ ul.email li i {
     position: relative;
 }
 
-.bt_fe::before {
+/* .bt_fe::before {
     position: absolute;
     content: "";
     left: 0;
     top: 0;
     height: 100%;
-    background: #f6388e;
-    width: 40%;
-}
+    background: #6a6064;
+    width: 10%;
+} */
 
 .creative h1 {
     font-size: 100px;
@@ -524,6 +576,9 @@ ul.email li i {
     height: 79px;
     font-weight: bold;
     font-size: 20px;
+    position: absolute;
+    left: 50%;
+    top: 200%;
     background: #fff;
     color: #000;
 }
@@ -571,8 +626,8 @@ ul.email li i {
 #banner1 .carousel-control-next:hover,
 #banner1 .carousel-control-prev:focus,
 #banner1 .carousel-control-prev:hover {
-    color: #fff;
-    background: #fa136f;
+    color: rgb(117, 52, 52);
+    background: #5113fa;
 }
 
 
@@ -597,7 +652,7 @@ ul.email li i {
 }
 
 .lightbox {
-    background: #f6388e;
+    background: #ffffff;
 }
 
 .view_main {
@@ -612,7 +667,7 @@ ul.email li i {
     align-items: center;
     opacity: 0;
     transition: ease-in all 0.5s;
-    background: #f6388ed9;
+    background: #71696dd9;
     cursor: pointer;
 }
 
@@ -670,8 +725,8 @@ ul.email li i {
     align-items: center;
     bottom: 0;
     margin: 0 auto;
-    width: 56px;
-    height: 56px;
+    width: 45px;
+    height: 45px;
     border-radius: 60px;
     background-color: #fff;
     transition: ease-in all 0.5s;
@@ -705,7 +760,7 @@ ul.email li i {
 /** about section **/
 
 .about {
-    background: #e5b9d0;
+    background: #ffffff;
     padding-top: 90px;
     padding-bottom: 90px;
     margin-top: 90px;
@@ -881,7 +936,7 @@ ul.social_icon li a i:hover {
 .group_form .send_btn {
     font-size: 18px;
     transition: ease-in all 0.5s;
-    background-color: #2a2929;
+    background-color: #3d3baa;
     color: #fff;
     max-width: 159px;
     width: 100%;
@@ -899,7 +954,7 @@ ul.social_icon li a i:hover {
 }
 
 #request *::placeholder {
-    color: #d0d0cf;
+    color: #3d3baa;
     opacity: 1;
 }
 
@@ -1031,7 +1086,7 @@ ul.social_icon_bottom li a i:hover {
 /**  inner page css **/
 
 .inner_page .header-area {
-    box-shadow: #f6388ec7 0 0 10px 0px;
+    box-shadow: #cfd211c7 0 0 10px 0px;
     margin-bottom: 10px;
 }
 
