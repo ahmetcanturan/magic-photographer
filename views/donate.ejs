@@ -14,18 +14,20 @@
                         <div class="titlepage text_align_center">
                             <img src="/images/logo1.png" alt="Italian Trulli">
                             <span></span>
-                            <h2>Register</h2>
+                            <h2>Donate to Photographer </h2>
                         </div>
                     </div>
                     <div class="col-md-8 offset-md-2">
-                        <form id="request" class="main_form" action="/user/register" method="POST">
+
+                        <form id="request" class="main_form" action="/donate/<%=postId%>" method="POST">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input class="form_control" placeholder="Username *" type="text" name="username">
+                                    <input class="form_control" placeholder="name *" type="text" name="name"
+                                        required="true">
                                 </div>
                                 <% if(error) {%>
                                     <% for (err of error){%>
-                                        <% if(err.param=="username" ) {%>
+                                        <% if(err.param=="name" ) {%>
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger">
                                                     <%=err.msg%>
@@ -35,12 +37,12 @@
                                                 <% }%>
                                                     <% }%>
                                                         <div class="col-md-12">
-                                                            <input class="form_control" placeholder="Email *"
-                                                                type="email" name="email">
+                                                            <input class="form_control" placeholder="surname *"
+                                                                type="text" name="surname" required="true">
                                                         </div>
                                                         <% if(error) {%>
                                                             <% for (err of error){%>
-                                                                <% if(err.param=="email" ) {%>
+                                                                <% if(err.param=="surname" ) {%>
                                                                     <div class="col-md-12">
                                                                         <div class="alert alert-danger">
                                                                             <%=err.msg%>
@@ -49,15 +51,16 @@
                                                                     <% }%>
                                                                         <% }%>
                                                                             <% }%>
+
                                                                                 <div class="col-md-12">
                                                                                     <input class="form_control"
-                                                                                        placeholder="Password *"
-                                                                                        type="password" name="password">
+                                                                                        placeholder="Email *"
+                                                                                        type="email" required="true"
+                                                                                        name="email">
                                                                                 </div>
                                                                                 <% if(error) {%>
                                                                                     <% for (err of error){%>
-                                                                                        <% if(err.param=="password" )
-                                                                                            {%>
+                                                                                        <% if(err.param=="email" ) {%>
                                                                                             <div class="col-md-12">
                                                                                                 <div
                                                                                                     class="alert alert-danger">
@@ -69,12 +72,98 @@
                                                                                                     <% }%>
                                                                                                         <div
                                                                                                             class="col-md-12">
-                                                                                                            <div
-                                                                                                                class="group_form">
-                                                                                                                <button
-                                                                                                                    class="send_btn">Register</button>
-                                                                                                            </div>
+                                                                                                            <input
+                                                                                                                class="form_control"
+                                                                                                                placeholder="TC *"
+                                                                                                                required="true"
+                                                                                                                type="text"
+                                                                                                                name="tc">
                                                                                                         </div>
+                                                                                                        <% if(error) {%>
+                                                                                                            <% for (err
+                                                                                                                of
+                                                                                                                error){%>
+                                                                                                                <% if(err.param=="tc"
+                                                                                                                    )
+                                                                                                                    {%>
+                                                                                                                    <div
+                                                                                                                        class="col-md-12">
+                                                                                                                        <div
+                                                                                                                            class="alert alert-danger">
+                                                                                                                            <%=err.msg%>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <%}%>
+                                                                                                                        <%}%>
+                                                                                                                            <%}%>
+                                                                                                                                <div
+                                                                                                                                    class="col-md-12">
+                                                                                                                                    <input
+                                                                                                                                        class="form_control"
+                                                                                                                                        placeholder="Phone number start with (5) *"
+                                                                                                                                        type="text"
+                                                                                                                                        name="tel"
+                                                                                                                                        required="true">
+                                                                                                                                </div>
+                                                                                                                                <% if(error)
+                                                                                                                                    {%>
+                                                                                                                                    <% for
+                                                                                                                                        (err
+                                                                                                                                        of
+                                                                                                                                        error){%>
+                                                                                                                                        <% if(err.param=="tel"
+                                                                                                                                            )
+                                                                                                                                            {%>
+                                                                                                                                            <div
+                                                                                                                                                class="col-md-12">
+                                                                                                                                                <div
+                                                                                                                                                    class="alert alert-danger">
+                                                                                                                                                    <%=err.msg%>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+
+                                                                                                                                            <%
+                                                                                                                                                }%>
+                                                                                                                                                <%
+                                                                                                                                                    }%>
+                                                                                                                                                    <%
+                                                                                                                                                        }%>
+                                                                                                                                                        <div
+                                                                                                                                                            class="col-md-12">
+                                                                                                                                                            <input
+                                                                                                                                                                class="form_control"
+                                                                                                                                                                placeholder="Donation amount (use dot instead of comma) *"
+                                                                                                                                                                required="true"
+                                                                                                                                                                type="text"
+                                                                                                                                                                name="amount">
+                                                                                                                                                        </div>
+                                                                                                                                                        <% if(error)
+                                                                                                                                                            {%>
+                                                                                                                                                            <% for
+                                                                                                                                                                (err
+                                                                                                                                                                of
+                                                                                                                                                                error){%>
+                                                                                                                                                                <% if(err.param=="amount"
+                                                                                                                                                                    )
+                                                                                                                                                                    {%>
+                                                                                                                                                                    <div
+                                                                                                                                                                        class="col-md-12">
+                                                                                                                                                                        <div
+                                                                                                                                                                            class="alert alert-danger">
+                                                                                                                                                                            <%=err.msg%>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <%}%>
+                                                                                                                                                                        <%}%>
+                                                                                                                                                                            <%}%>
+                                                                                                                                                                                <div
+                                                                                                                                                                                    class="col-md-12">
+                                                                                                                                                                                    <div
+                                                                                                                                                                                        class="group_form">
+                                                                                                                                                                                        <button
+                                                                                                                                                                                            class="send_btn">Donate</button>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </div>
                             </div>
                         </form>
                     </div>
