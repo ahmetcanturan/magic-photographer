@@ -6,7 +6,7 @@ const createUser = async (req, res) => {
     try {
         if (validate(req, res, "register") != null) { return }
         const json = await services.user.createUser(req.body)
-        res.status(201).redirect("/")
+        res.status(201).redirect("/login")
     } catch (error) {
         console.log(error)
         res.status(500).json({ succeded: false, error })

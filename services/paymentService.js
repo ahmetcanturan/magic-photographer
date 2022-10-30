@@ -82,7 +82,6 @@ const getFormPayment = async (token) => {
         console.log(err)
         logFile("payments-complete-error", err)
         return err
-
     })
 }
 

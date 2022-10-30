@@ -10,8 +10,6 @@ const createPhoto = async (req, res) => {
     body.image = img.secure_url
     body.user = res.locals.user.id
     body.cloudinaryId = img.public_id
-    console.log(img)
-
     const photo = await Photo.create(body)
     return photo
 }

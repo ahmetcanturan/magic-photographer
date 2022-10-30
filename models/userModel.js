@@ -16,6 +16,10 @@ const userSchema = new Schema({
     password: {
         type: Schema.Types.String,
         require: true
+    },
+    donation: {
+        type: Schema.Types.Number,
+        default: 0
     }
 }, {
     minimize: true,//? boş kayıtları otomatik siler

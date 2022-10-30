@@ -1,6 +1,7 @@
 import { validate } from "../utils/utils.js"
 import { mail as mailler } from "../utils/utils.js"
 import { donateService } from "../services/pageService.js"
+import { donationIncome } from "../services/donationIncomeService.js"
 import Donate from "../models/donateModel.js"
 import { getFormPayment } from "../services/paymentService.js"
 
@@ -37,7 +38,8 @@ const donatePost = async (req, res) => {
 const checkInPayment = async (req, res) => {
   const json = await getFormPayment(req.body.token)
   if (json?.status == "success") {
-    await Donate.findOneAndUpdate({ token: req.body.token }, { status: "true" })
+    const donate = await Donate.findOneAndUpdate({ token: req.body.token }, { status: "true" })
+    await donationIncome(donate.amount, donate.user)
   }
   else { await Donate.findOneAndUpdate({ token: req.body.token }, { status: "false" }) }
   res.redirect("/")
