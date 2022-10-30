@@ -9,7 +9,10 @@ const donateService = async (data) => {
     data.body.photo = data.photoId
     const donate = await Donate.create(data.body)
     const pay = await initializeCheckoutForm(donate)
-    console.log("sadasd", pay)
+    await Donate.findByIdAndUpdate(donate.id, { token: pay.token })
+    if (pay?.status == false) {
+        await Donate.findByIdAndUpdate(donate._id, { status: "false" })
+    }
     return pay
 }
 

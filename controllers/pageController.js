@@ -1,6 +1,9 @@
 import { validate } from "../utils/utils.js"
 import { mail as mailler } from "../utils/utils.js"
 import { donateService } from "../services/pageService.js"
+import Donate from "../models/donateModel.js"
+import { getFormPayment } from "../services/paymentService.js"
+
 const indexPage = (req, res) => {
   res.render("index")
 }
@@ -28,7 +31,16 @@ const donatePost = async (req, res) => {
   const body = req.body
   const data = { body, photoId: req.params.photoId }
   const json = await donateService(data)
-  res.redirect(json)
+  return (json === null) ? res.status(400).redirect("/") : res.redirect(json.url)
+}
+
+const checkInPayment = async (req, res) => {
+  const json = await getFormPayment(req.body.token)
+  if (json?.status == "success") {
+    await Donate.findOneAndUpdate({ token: req.body.token }, { status: "true" })
+  }
+  else { await Donate.findOneAndUpdate({ token: req.body.token }, { status: "false" }) }
+  res.redirect("/")
 }
 const mail = async (req, res) => {
   try {
@@ -40,4 +52,4 @@ const mail = async (req, res) => {
   }
 }
 
-export { indexPage, aboutPage, contactPage, registerPage, loginPage, mail, donatePage, donatePost }
+export { indexPage, aboutPage, contactPage, registerPage, loginPage, mail, donatePage, donatePost, checkInPayment }

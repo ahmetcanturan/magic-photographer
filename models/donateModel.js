@@ -40,6 +40,14 @@ const donateSchema = new Schema({
         required: true,
         ref: "Photo"
     },
+    status: {
+        type: Schema.Types.String,
+        default: "null"
+    },
+    token: {
+        type: Schema.Types.String
+    },
+
 }, {
     minimize: true,//? boş kayıtları otomatik siler
     timestamps: false, //? Otomatik createdAT ve updatedAT oluşturur

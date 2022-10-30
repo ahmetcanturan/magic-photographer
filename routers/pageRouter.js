@@ -10,4 +10,5 @@ router.get("/register", pageController.registerPage)
 router.get("/login", pageController.loginPage)
 router.get("/donate/:photoId", pageController.donatePage)
 router.post("/donate/:photoId", [donateValid.donateValid()], pageController.donatePost)
+router.post("/check-in-payment", pageController.checkInPayment)
 export default router

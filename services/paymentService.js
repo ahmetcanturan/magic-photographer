@@ -16,7 +16,7 @@ const initializeCheckoutForm = async (donate) => {
         basketId: String(donate._id),
         paymentChannel: Iyzipay.PAYMENT_CHANNEL.WEB,
         paymentGroup: Iyzipay.PAYMENT_GROUP.PRODUCT,
-        callbackUrl: "http://localhost:3000/api/checkout/complete/payment",
+        callbackUrl: "http://localhost:3000/check-in-payment",
         enabledInstallments: [1],//? Taksit seçeneklerini biz giriyoruz
         buyer: { //? Kullanıcının veritabanımızdaki bilgilerini giriyoruz
             id: nanoid(),
@@ -60,11 +60,30 @@ const initializeCheckoutForm = async (donate) => {
     }).then((result) => {
         // console.log(result)
         logFile("payment", result)
-        return result.paymentPageUrl
+        if (result?.status != "success") { return { status: false, token: result.token } }
+        return { url: result.paymentPageUrl, token: result.token }
     }).catch((err) => {
         console.log(err)
         logFile("payment_error", err)
+        return { status: false }
     })
 }
 
-export { initializeCheckoutForm }
+const getFormPayment = async (token) => {
+    return await Checkouts.getFormPayment({
+        locale: Iyzipay.LOCALE.TR,
+        conversationId: nanoid(),
+        token: token
+    }).then((result) => {
+        // console.log(result)
+        logFile("payments-complete", result)
+        return result
+    }).catch((err) => {
+        console.log(err)
+        logFile("payments-complete-error", err)
+        return err
+
+    })
+}
+
+export { initializeCheckoutForm, getFormPayment }
