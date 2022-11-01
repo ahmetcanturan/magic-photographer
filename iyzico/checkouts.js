@@ -1,8 +1,3 @@
-//? Check Out Formu ile Ödeme Sistemi
-//? Bu sistemde iyzico kendi ödeme ekranlarını verir 
-//? Kullanıcı isterse normal öder isterse 3D Secure ile öder
-//? Modül içerisine cardUserKeyi tanımlarsak
-//? Kullanıcının kayıtlı kartları form üzerinde kullanıcıya gösterilir.
 import iyzipay from "./iyzipay.js"
 
 //? Ödemeyi Başlatan Method

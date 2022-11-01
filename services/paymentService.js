@@ -5,7 +5,7 @@ import moment from "moment"
 moment.locale("tr")
 
 
-const initializeCheckoutForm = async (donate) => {
+const initializeCheckoutForm = async (donate, ip) => {
     return await Checkouts.initialize({
         locale: Iyzipay.LOCALE.TR,
         conversationId: nanoid(),
@@ -28,7 +28,7 @@ const initializeCheckoutForm = async (donate) => {
             lastLoginDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
             registrationDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
             registrationAddress: "virtual address",
-            ip: "85.32.56.342",
+            ip: ip,
             city: "virtual address",
             country: "Turkey",
             zipCode: "16000"

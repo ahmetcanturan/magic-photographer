@@ -31,7 +31,7 @@ const donatePost = async (req, res) => {
   if (validate(req, res, "donate") != null) { return }
   const body = req.body
   const data = { body, photoId: req.params.photoId }
-  const json = await donateService(data)
+  const json = await donateService(data, req.ip)
   return (json === null) ? res.status(400).redirect("/") : res.redirect(json.url)
 }
 
