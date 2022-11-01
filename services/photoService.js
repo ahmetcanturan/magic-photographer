@@ -14,7 +14,6 @@ const createPhoto = async (req, res) => {
     return photo
 }
 
-
 const getAllPhotos = async () => {
     const photo = await Photo.find()
     return photo

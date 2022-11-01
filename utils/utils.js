@@ -65,6 +65,7 @@ const validate = (req, res, render_page) => {
                     res.status(400).render(render_page)
                     break;
                 case "donate":
+                    res.locals.postId = req.params.photoId
                     res.status(400).render(render_page)
                     break;
                 default:

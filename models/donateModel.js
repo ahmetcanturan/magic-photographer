@@ -33,7 +33,6 @@ const donateSchema = new Schema({
     email: {
         type: Schema.Types.String,
         required: true,
-        unique: true
     },
     photo: {
         type: Schema.Types.ObjectId,
@@ -50,7 +49,7 @@ const donateSchema = new Schema({
 
 }, {
     minimize: true,//? boş kayıtları otomatik siler
-    timestamps: false, //? Otomatik createdAT ve updatedAT oluşturur
+    timestamps: true, //? Otomatik createdAT ve updatedAT oluşturur
     autoIndex: true //? şemayı otomatik oluşturur
 })
 

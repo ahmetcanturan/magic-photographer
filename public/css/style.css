@@ -660,7 +660,7 @@ ul.email li i {
     top: 0;
     height: 100%;
     left: 15px;
-    right: 15px;
+    right: 80px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -705,7 +705,7 @@ ul.email li i {
 }
 
 .tz-gallery .lightbox h3 {
-    color: #061543;
+    color: #051238;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 25px;
