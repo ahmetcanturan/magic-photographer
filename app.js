@@ -28,7 +28,7 @@ app.use(middlewares.aut)
 //? -------------App.use_Routers---------------
 app.use("/", routers.page)//?->localhost:3000/MagicPhotographer/
 app.use("", routers.photo)//?
-app.use("user", routers.user)//?->localhost:3000/MagicPhotographer/user/
+app.use("/user", routers.user)//?->localhost:3000/MagicPhotographer/user/
 //* -------------App.use_Routers-END-----------
 
 
