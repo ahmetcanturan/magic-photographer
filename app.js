@@ -35,3 +35,8 @@ app.use(`${process.env.APP_PREFIX}/user`, routers.user)//?->localhost:3000/Magic
 app.use(router)
 app.listen(process.env.PORT, () => console.log(`${process.env.PORT}. is Activated..`))
 dbConnect()
+
+
+router.use((req, res) => {
+    res.render("notFoundPath")
+})
