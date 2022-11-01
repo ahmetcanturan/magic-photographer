@@ -26,7 +26,7 @@ app.use(fileUpload({ useTempFiles: true }))
 app.use(middlewares.aut)
 
 //? -------------App.use_Routers---------------
-app.use(`${process.env.APP_PREFIX}`, routers.page)//?->localhost:3000/MagicPhotographer/
+app.use("/", routers.page)//?->localhost:3000/MagicPhotographer/
 app.use(`${process.env.APP_PREFIX}`, routers.photo)//?
 app.use(`${process.env.APP_PREFIX}/user`, routers.user)//?->localhost:3000/MagicPhotographer/user/
 //* -------------App.use_Routers-END-----------
