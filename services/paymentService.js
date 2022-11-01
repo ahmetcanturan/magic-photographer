@@ -16,7 +16,7 @@ const initializeCheckoutForm = async (donate) => {
         basketId: String(donate._id),
         paymentChannel: Iyzipay.PAYMENT_CHANNEL.WEB,
         paymentGroup: Iyzipay.PAYMENT_GROUP.PRODUCT,
-        callbackUrl: "http://localhost:3000/check-in-payment",
+        callbackUrl: "https://magic-photographer.herokuapp.com/check-in-payment",
         enabledInstallments: [1],//? Taksit seçeneklerini biz giriyoruz
         buyer: { //? Kullanıcının veritabanımızdaki bilgilerini giriyoruz
             id: nanoid(),
